@@ -19,14 +19,13 @@
         </form>
     </div>
 </div>
-<h2>Lista plików </h2>
 <div class="row">
     <table th:each="file:${files}">
         <div class="container">
-            <p th:text="|Tytuł: ${file.title}|"></p>
+            <p th:text="|Title: ${file.title}|"></p>
                 <tr>
                     <img th:src="${'/images/'+ file.title}" style="max-height: 100px" alt="">
-                    <td><span th:text="|Opis: ${file.description}|"></span></td>
+                    <td><span th:text="|Description: ${file.description}|"></span></td>
                 </tr>
         </div>
     </table>
