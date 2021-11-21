@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>EasyTutorials - Pagination Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" th:action="@{/uploadFile}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Select Image File: </label>
+                <input type="file" name="myfile" accept="image/*" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Upload" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>
+<h2>Lista plików </h2>
+<div class="row">
+    <table th:each="file:${files}">
+        <div class="container">
+            <p th:text="|Tytuł: ${file.title}|"></p>
+                <tr>
+                    <img th:src="${'/images/'+ file.title}" style="max-height: 100px" alt="">
+                    <td><span th:text="|Opis: ${file.description}|"></span></td>
+                </tr>
+        </div>
+    </table>
+</div>
+</body>
+</html>
